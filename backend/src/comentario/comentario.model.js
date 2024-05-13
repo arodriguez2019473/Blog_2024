@@ -17,11 +17,6 @@ const ComentarioSchema = mongoose.Schema({
         default: Date.now
     },
 
-    publicacion: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Publicacion',
-        required: [true, "La publicación es obligatoria"]
-    }
 });
 
 export default mongoose.model('Comentario', ComentarioSchema);

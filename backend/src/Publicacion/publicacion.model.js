@@ -21,8 +21,29 @@ const PublicacionSchema = mongoose.Schema({
     estado: {
         type: String,
         default: true,
+    },
+
+    comentario: {
+        type: [{
+            contenido: { type: String, require: true},
+            autor: { type: String, require: true},
+            fecha: { type: String, require: true}
+        
+        }],
+        _id: false,
     }
+
+
+
 
 });
 
 export default mongoose.model('Publicacion', PublicacionSchema)
+
+/*
+    publicacion: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Publicacion',
+        required: [true, "La publicación es obligatoria"]
+    }
+*/
