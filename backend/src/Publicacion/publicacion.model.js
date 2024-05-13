@@ -18,6 +18,11 @@ const PublicacionSchema = mongoose.Schema({
         default: Date.now
     },
 
+    estado: {
+        type: String,
+        default: true,
+    }
+
 });
 
 export default mongoose.model('Publicacion', PublicacionSchema)

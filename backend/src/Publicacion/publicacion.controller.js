@@ -1,16 +1,16 @@
 import { response, request } from "express";
-import publicacionModel from "./publicacion.model.js";
+import publicacion from "./publicacion.model.js";
 
 export const publicacionGet = async (req, res) => {
     const { limite, desde } = req.query;
-    const query = { status: true };
+    const query = { estado: true };
 
     try {
       
         const [total, publicaciones] = await Promise.all([
       
-            publicacionModel.countDocuments(query),
-            publicacionModel.find(query)
+            publicacion.countDocuments(query),
+            publicacion.find(query)
                 .skip(Number(desde))
                 .limit(Number(limite))
         ]);
@@ -33,10 +33,10 @@ export const publicacionPost = async (req, res) => {
 
         const { titulo, contenido, fecha } = req.body;
 
-        const nuevaPublicacion = new publicacionModel({
+        const nuevaPublicacion = new publicacion({
             titulo,
             contenido,
-            fecha
+            fecha,
         });
 
         await nuevaPublicacion.save();
@@ -54,7 +54,7 @@ export const getPublicacionById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const publicacionEncontrada = await publicacionModel.findOne({ _id: id });
+        const publicacionEncontrada = await publicacion.findOne({ _id: id });
 
         if (!publicacionEncontrada) {
             return res.status(404).json({ error: 'Publicación no encontrada' });

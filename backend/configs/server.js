@@ -4,6 +4,11 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import { dbConnection } from './mongo.js'
+
+import comentarioRoutes from '../src/comentario/comentario.routes.js'
+import publicacionRoutes from '../src/Publicacion/publicacion.routes.js'
+
 
 class Server{
 
@@ -11,6 +16,8 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;
 
+        this.comentarioPath = '/blog/v1/comentario'
+        this.publicacionPath = '/blog/v1/publicacion'
 
         this.conectarDB();
         this.middlewares();
@@ -29,6 +36,9 @@ class Server{
     }
 
     routes(){
+
+        this.app.use(this.comentarioPath, comentarioRoutes);
+        this.app.use(this.publicacionPath, publicacionRoutes);
 
     }
 
