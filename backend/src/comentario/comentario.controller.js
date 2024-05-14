@@ -28,39 +28,6 @@ export const comentarioPost = async (req, res) => {
     }
 };
 
-/*
-export const comentarioPost = async (req, res) => {
-   
-        const { contenido, autor } = req.body;
-        const nuevocomentario = new Comentario ({ contenido, autor});
-
-        const Comentario = await Comentario.findOne({autor});
-        const proceso = await Publicacion.findOne({ autor, estado: 'En Proceso' })
-
-        if(!Comentario){
-                
-            return res.status('la publicacion no existe').json({
-                msg: "esto no a sido registrado"
-            });
-        
-        }
-
-        if(proceso){
-            return res.status(400).json({
-                msg: "Ya existe un comentario en proceso"
-            })
-        }
-
-
-        await nuevocomentario.save();
-
-        res.status(200).json({
-            comentario:nuevocomentario,
-            publicacion:Publicacion
-        });
-
-    };
- */
 
 export const comentarioGetId = async (req, res) => {
     try {
