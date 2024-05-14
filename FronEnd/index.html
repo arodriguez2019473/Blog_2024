@@ -6,7 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <script src="bon non lo so.js"></script>
     <link rel="stylesheet" href="./src/index.css">
-</head>
+    <link rel="createComentario" href="./src/components/comentario/createComentario.jsx">
+  </head>
 <body>
 
     <!-- questo è il corpo -->
@@ -48,24 +49,25 @@
     
 </section>
 
-<!--le cause-->
-<section id="cause">
-    <h2 style="color: #000;">mis proyectos mas buscados ven y ve</h2>
-</section>
-
-<!-- Flip Card 1 -->
 <div class="flip-card">
-    <div class="flip-card-inner">
+  <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="prove html scuola/imgagini/cervello+dna.jpg" class="card-image" alt="Gestor Opinion">
+          <img src="prove html scuola/imgagini/cervello+dna.jpg" class="card-image" alt="Gestor Opinion">
       </div>
       <div class="flip-card-back">
-        <h2>Gestor Opiniones</h2>
-        <p> Hecho en node.js con conexion a mongo db</p>
-        <a href="./src/components/Publicaciones/GestorOpinion.html">click</a>
-    </div>
-    </div>
+          <h2>Gestor Opiniones</h2>
+          <p>Hecho en node.js con conexión a MongoDB</p>
+          <button id="verComentario"><a href="/comentario" style="color: #fff">Ver Comentarios</a></button>
+        </div>
   </div>
+</div>
+
+<script>
+  document.getElementById('verComentario').addEventListener('click', function() {
+      window.location.href = "./src/components/comentario/CrearComentario.html";
+  });
+</script>
+
   
   <!-- Flip Card 2 -->
   <div class="flip-card">
